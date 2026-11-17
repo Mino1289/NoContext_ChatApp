@@ -1,0 +1,45 @@
+[project]
+name = "zeroctx"
+version = "0.1.0"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "cohere>=7.3.1",
+    "google-genai>=3.4.0",
+    "plotly>=7.1.0",
+    "pydantic-settings>=2.16.3",
+    "python-dotenv>=1.2.4",
+    "sqlite-vec>=0.1.9",
+    "streamlit>=1.67.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "ruff>=0.17.5",
+    "ty>=0.0.104",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zeroctx"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+extend-exclude = [".venv", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.ty.environment]
+python-version = "3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
