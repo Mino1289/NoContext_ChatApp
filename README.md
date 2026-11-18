@@ -86,6 +86,3 @@ uv run ruff check . && uv run ruff format .
 
 Les réglages de chunking, de recherche (`rrf_k`, `search_candidates`, `context_chunks`, `context_char_budget`) et le seuil de steering (`steering_threshold`) se modifient dans `src/zeroctx/config.py`.
 
-## Sécurité
-
-Ne jamais committer `.env` : il contient les clés API. Il est déjà listé dans `.gitignore`.
